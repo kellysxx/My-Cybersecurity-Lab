@@ -22,7 +22,7 @@ A personal learning log for building a Kali Linux virtual machine in VirtualBox 
 | Gateway | `10.0.0.1` |
 | DNS servers | `8.8.8.8`, `1.1.1.1` |
 | Kali adapter | Adapter 1, Intel PRO/1000 MT Desktop (82540EM) |
-| Snapshot | `my first kali linux` |
+| Snapshot | `Static IP Verified` |
 
 ## Setup walkthrough
 
