@@ -60,12 +60,6 @@ Kali's `Wired connection 1` profile is set to **Manual** with address `10.0.0.2`
 
 ### 6. Save a VM snapshot
 
-A snapshot named `my first kali linux  was created. VirtualBox shows that the current state has changed since the snapshot was taken, so this is a checkpoint rather than proof that the current VM exactly matches the saved snapshot.
-
-![Kali snapshot](screenshots/kali-snapshot.png)
-
- ### VM snapshot
-
 A snapshot named `Static IP Verified` was created after verifying the static IPv4 address and DNS resolution.
 
 ![Kali snapshot](screenshots/kali-snapshot-Static-IP-Verified.png)
