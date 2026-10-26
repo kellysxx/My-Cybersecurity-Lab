@@ -4,112 +4,110 @@
 
 **A Kali Linux lab I built and tested in VirtualBox**
 
-![Kali Linux](https://img.shields.io/badge/Kali_Linux-2025.3-blue?logo=kalilinux)
-![VirtualBox](https://img.shields.io/badge/VirtualBox-NAT_Network-blue)
-![Network](https://img.shields.io/badge/Lab_Network-10.0.0.0%2F24-green)
+![Kali Linux](https://img.shields.io/badge/Kali_Linux-2025.3-557C94?logo=kalilinux&logoColor=white)
+![VirtualBox](https://img.shields.io/badge/VirtualBox-NAT_Network-183A61)
+![Lab Network](https://img.shields.io/badge/Lab_Network-10.0.0.0%2F24-238636)
 
 </div>
 
+A hands-on learning project documenting my own virtual machine, network configuration, troubleshooting, and verification evidence.
 
-> The reference repository linked under Credits inspired the lab topic. This README and its screenshots document my own virtual machines and configuration.
+> The repositories in Credits were references for the topic and documentation structure. The configuration, screenshots, and test results below are from my own lab.
 
-## ⚙️ My Lab configuration
+## 📌 Lab at a glance
 
-## 🪜 Setup Walkthrough.
+| Component | My setup |
 |---|---|
-| Host | Windows |
+| Host operating system | Windows |
 | Hypervisor | Oracle VirtualBox |
-| Virtual machine | `kali-linux-2025.3-virtualbox-amd64` |
+| Virtual machine | Kali Linux 2025.3 |
 | Kali memory | 2048 MB |
 | Network mode | NAT Network |
 | NAT Network name | `NatNetwork` |
-| IPv4 prefix | `10.0.0.0/24` |
+| IPv4 network | `10.0.0.0/24` |
 | NAT DHCP | Enabled on the VirtualBox network |
-| Kali IPv4 method | Manual/static |
+| Kali IPv4 configuration | Manual/static |
 | Kali address | `10.0.0.2/24` |
 | Gateway | `10.0.0.1` |
 | DNS servers | `8.8.8.8`, `1.1.1.1` |
-| Kali adapter | Adapter 1, Intel PRO/1000 MT Desktop (82540EM) |
 | Snapshot | `Static IP Verified` |
 
-## Setup walkthrough
+## 🪜 Setup walkthrough
 
 ### 1. VirtualBox Manager
 
-VirtualBox Manager is used to manage the Kali virtual machine and the lab network.
+I used VirtualBox Manager to manage the Kali virtual machine and NAT Network.
 
 ![VirtualBox Manager](screenshots/virtualbox-manager.png)
 
-### 2. Kali virtual machine settings
+### 2. Kali virtual machine
 
-The VM settings identify the Kali Linux 2025.3 appliance. The system is allocated 2048 MB of memory.
+The VM is Kali Linux 2025.3 with 2048 MB of memory.
 
 ![Virtual machine overview](screenshots/virtual-machine-overview.png)
 
 ![Virtual machine system settings](screenshots/virtual-machine-system-settings.png)
 
-### 3. Create and configure the NAT Network
+### 3. NAT Network
 
-The NAT Network is named `NatNetwork` and uses `10.0.0.0/24`. DHCP is enabled on the VirtualBox NAT Network; IPv6 is disabled.
+I created a NAT Network named `NatNetwork` with the IPv4 prefix `10.0.0.0/24`. DHCP is enabled on the VirtualBox network and IPv6 is disabled.
 
-![NAT Network DHCP settings](screenshots/nat-network-dhcp-settings.png)
+![NAT Network settings](screenshots/nat-network-dhcp-settings.png)
 
-### 4. Connect Kali to the NAT Network
+### 4. Kali network adapter
 
-Adapter 1 is enabled and attached to the `NatNetwork` NAT Network using the Intel PRO/1000 MT Desktop adapter. The screenshot shows Promiscuous Mode set to `Allow All`.
+Adapter 1 connects Kali to the `NatNetwork` using the Intel PRO/1000 MT Desktop adapter. I set Promiscuous Mode to **Deny** for the current setup. The saved screenshot shows the earlier **Allow All** setting.
 
 ![Kali adapter settings](screenshots/kali-audio-and-network-settings.png)
 
-### 5. Configure Kali with a static IPv4 address
+### 5. Static IPv4 settings
 
-Kali's `Wired connection 1` profile is set to **Manual** with address `10.0.0.2`, prefix `24`, gateway `10.0.0.1`, and DNS `8.8.8.8`.
+I configured `Wired connection 1` with address `10.0.0.2/24`, gateway `10.0.0.1`, and DNS.
 
 ![Kali manual IPv4 settings](screenshots/kali-ipv4-manual-settings.png)
 
-### 6. Save a VM snapshot
+### 6. Snapshot
 
-A snapshot named `Static IP Verified` was created after verifying the static IPv4 address and DNS resolution.
+After verifying the network configuration, I saved a VirtualBox snapshot named `Static IP Verified`.
 
 ![Kali snapshot](screenshots/kali-snapshot-Static-IP-Verified.png)
 
-### 7. Verify the static address and connectivity
+## ✅ Verification
 
-The final terminal capture shows:
+The terminal evidence shows Kali using the static address `10.0.0.2/24`, with a default route through `10.0.0.1`. Four pings to `8.8.8.8` succeeded with 0% packet loss.
 
-- `eth0` has address `10.0.0.2/24` without the `dynamic` label.
-- The default route uses gateway `10.0.0.1` and is marked `static`.
-- Four pings to `8.8.8.8` succeeded with 0% packet loss.
+![Kali static IP and connectivity verification](screenshots/kali-static-ip-verification.png)
 
-![Kali static IPv4 and connectivity verification](screenshots/kali-static-ip-verification.png)
-
-Earlier, Kali received `10.0.0.3/24` dynamically from DHCP. This screenshot records the state before the static setting was applied.
+Earlier in the setup, Kali received `10.0.0.3/24` dynamically. This screenshot records the DHCP state before I configured the static address.
 
 ![Kali DHCP address before static configuration](screenshots/kali-dhcp-before-static.png)
 
-DNS resolution also succeeded with `getent hosts google.com`.
-
-![DNS resolution test in Kali](screenshots/dns-resolution.png)
-
-## Connectivity and DNS verification
-
-Kali received all four ping replies from `8.8.8.8` and resolved `google.com` successfully.
+I also checked that `google.com` resolves and that the VM can reach `8.8.8.8`.
 
 ![Kali connectivity and DNS verification](screenshots/dns-connectivity.png)
 
-## Verification commands
-
-These commands were used to inspect the Kali network configuration and test connectivity:
+## 🧰 Commands used
 
 ```bash
 ip -4 addr
 ip route
 ping -c 4 8.8.8.8
+getent hosts google.com
 ```
 
-## Safety
+## 🔧 Troubleshooting note
 
-Use this lab only for learning and for systems that I own or have explicit permission to test. Keep security exercises within the virtual lab unless there is a clear, authorized reason to connect elsewhere.
+I initially ran into validation errors while entering the manual IPv4 settings. I corrected the connection configuration and then verified the address, route, ping, and DNS resolution from Kali.
 
-## Credits
+## 🔐 Safe use
 
-Lab topic inspiration: [Cybersecurity Lab Setup](https://github.com/waqasulkarim/Cybersecurity-Lab-Setup1). This project is an independently written record of my own lab configuration and learning.
+This lab is for learning and authorized testing. I will only test systems I own or have explicit permission to assess.
+
+## 🙏 Credits
+
+These repositories provided examples and inspiration for the lab topic and documentation structure:
+
+- [Cybersecurity Lab Setup — Waqas Karim](https://github.com/waqasulkarim/Cybersecurity-Lab-Setup1)
+- [Cybersecurity Lab Setup — Alebiosu Oluwadamilare Samuel](https://github.com/cyxaviazriel/Cybersecurity-Lab-Setup1)
+
+This repository documents my own VM configuration, screenshots, and results.
