@@ -1,13 +1,21 @@
-# My-Cybersecurity-Lab
-my Cybersecurity lab setup
+<div align="center">
 
-A personal learning log for building a Kali Linux virtual machine in VirtualBox and connecting it to a NAT Network. This project records my own setup and verification evidence.
+# 🛡️ My Cybersecurity Lab
+
+**A Kali Linux lab I built and tested in VirtualBox**
+
+![Kali Linux](https://img.shields.io/badge/Kali_Linux-2025.3-blue?logo=kalilinux)
+![VirtualBox](https://img.shields.io/badge/VirtualBox-NAT_Network-blue)
+![Network](https://img.shields.io/badge/Lab_Network-10.0.0.0%2F24-green)
+
+</div>
+
 
 > The reference repository linked under Credits inspired the lab topic. This README and its screenshots document my own virtual machines and configuration.
 
-## Lab configuration
+## ⚙️ My Lab configuration
 
-| Item | My setup |
+## 🪜 Setup Walkthrough.
 |---|---|
 | Host | Windows |
 | Hypervisor | Oracle VirtualBox |
