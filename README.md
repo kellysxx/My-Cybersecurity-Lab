@@ -82,6 +82,10 @@ Earlier, Kali received `10.0.0.3/24` dynamically from DHCP. This screenshot reco
 
 ![Kali DHCP address before static configuration](screenshots/kali-dhcp-before-static.png)
 
+DNS resolution also succeeded with `getent hosts google.com`.
+
+![DNS resolution test in Kali](screenshots/dns-resolution.png)
+
 ## Verification commands
 
 These commands were used to inspect the Kali network configuration and test connectivity:
