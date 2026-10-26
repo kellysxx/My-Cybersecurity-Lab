@@ -103,11 +103,5 @@ I initially ran into validation errors while entering the manual IPv4 settings. 
 
 This lab is for learning and authorized testing. I will only test systems I own or have explicit permission to assess.
 
-## 🙏 Credits
-
-These repositories provided examples and inspiration for the lab topic and documentation structure:
-
-- [Cybersecurity Lab Setup — Waqas Karim](https://github.com/waqasulkarim/Cybersecurity-Lab-Setup1)
-- [Cybersecurity Lab Setup — Alebiosu Oluwadamilare Samuel](https://github.com/cyxaviazriel/Cybersecurity-Lab-Setup1)
 
 This repository documents my own VM configuration, screenshots, and results.
