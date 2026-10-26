@@ -1,0 +1,9 @@
+# Ignore VirtualBox machine data and local secrets
+*.vdi
+*.vbox
+*.vbox-prev
+*.ova
+*.ovf
+*.iso
+*.7z
+.env
