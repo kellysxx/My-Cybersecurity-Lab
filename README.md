@@ -87,6 +87,7 @@ DNS resolution also succeeded with `getent hosts google.com`.
 Kali received all four ping replies from `8.8.8.8` and resolved `google.com` successfully.
 
 ![Kali connectivity and DNS verification](screenshots/dns-connectivity.png)
+
 ## Verification commands
 
 These commands were used to inspect the Kali network configuration and test connectivity:
