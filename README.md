@@ -1,5 +1,5 @@
 # My-Cybersecurity-Lab
-# My Cybersecurity Lab Setup
+my Cybersecurity lab setup
 
 A personal learning log for building a Kali Linux virtual machine in VirtualBox and connecting it to a NAT Network. This project records my own setup and verification evidence.
 
