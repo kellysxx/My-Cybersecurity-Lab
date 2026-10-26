@@ -64,7 +64,7 @@ A snapshot named `my first kali linux  was created. VirtualBox shows that the cu
 
 ![Kali snapshot](screenshots/kali-snapshot.png)
 
- Save a VM snapshot
+ ### VM snapshot
 
 A snapshot named `Static IP Verified` was created after verifying the static IPv4 address and DNS resolution.
 
