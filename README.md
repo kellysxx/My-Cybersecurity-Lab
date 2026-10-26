@@ -64,12 +64,13 @@ A snapshot named `my first kali linux  was created. VirtualBox shows that the cu
 
 ![Kali snapshot](screenshots/kali-snapshot.png)
 
-### 7. Save a VM snapshot
+ Save a VM snapshot
 
 A snapshot named `Static IP Verified` was created after verifying the static IPv4 address and DNS resolution.
 
 ![Kali snapshot](screenshots/kali-snapshot-Static-IP-Verified.png)
-### 8. Verify the static address and connectivity
+
+### 7. Verify the static address and connectivity
 
 The final terminal capture shows:
 
