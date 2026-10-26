@@ -35,7 +35,7 @@ The Kali VM connects to my VirtualBox NAT Network. The current lab network is `1
 
 | Component | My setup |
 |---|---|
-| Host operating system | Windows |
+| Host operating system | Windows 11 |
 | Hypervisor | Oracle VirtualBox 7.2 |
 | Virtual machine | Kali Linux 2025.3 |
 | Kali memory | 2048 MB |
