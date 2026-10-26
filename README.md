@@ -15,7 +15,7 @@
 </p>
 
 
-## 🛡️ Project Overview
+## 🎯 Project Overview
 
 This project documents how I built and verified my Kali Linux virtual machine in Oracle VirtualBox, including the NAT Network, static IPv4 configuration, troubleshooting, and test evidence.
 
@@ -151,5 +151,3 @@ Cybersecurity Intern at NetworkWalks
 
 These repositories were references for the topic and documentation structure. The lab configuration, screenshots, and results in this project are my own.
 
-- [Cybersecurity Lab Setup — Waqas Karim](https://github.com/waqasulkarim/Cybersecurity-Lab-Setup1)
-- [Cybersecurity Lab Setup — Alebiosu Oluwadamilare Samuel](https://github.com/cyxaviazriel/Cybersecurity-Lab-Setup1)
