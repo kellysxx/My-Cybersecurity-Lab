@@ -157,3 +157,16 @@ Cybersecurity Intern at NetworkWalks
 
 These repositories were references for the topic and documentation structure. The lab configuration, screenshots, and results in this project are my own.
 
+
+
+## 🧩 Additional connection errors and fixes
+
+### 1. Connection name used the wrong capitalization
+
+I first ran `nmcli connection up "wired connection 1"` and got `Error: unknown connection`. The saved profile name was `Wired connection 1`, with a capital **W**. I corrected the command to use the exact saved name, and NetworkManager activated the connection.
+
+### 2. Static profile did not activate
+
+When I tried to apply the manual IPv4 settings, NetworkManager reported `IP configuration could not be reserved`. I also noticed I had included the gateway address in the DNS list. The gateway belongs in the gateway field; the DNS field should contain DNS server addresses only.
+
+To restore network access while troubleshooting, I changed the profile back to automatic (DHCP), cleared the manual address, gateway, and DNS entries, then reactivated it. Kali received `10.0.0.3/24` and I confirmed that both `8.8.8.8` and `google.com` responded to ping. After correcting the static configuration, I later verified the final lab address `10.0.0.2/24`, gateway `10.0.0.1`, connectivity, and DNS as documented above.
