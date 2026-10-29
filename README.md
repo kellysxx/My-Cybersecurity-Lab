@@ -1,116 +1,57 @@
- ## ⚙️ Cybersecurity Lab Environment Setup
+# 🛡️ Kali Linux Cybersecurity Lab
 
-   Building a virtual lab for penetration testing and ethical hacking practice
+A beginner-friendly virtual lab documenting my Kali Linux network setup, troubleshooting, and verification in Oracle VirtualBox.
 
+![Kali Linux](https://img.shields.io/badge/Kali_Linux-2025.3-557C94?style=flat-square&logo=kalilinux&logoColor=white) ![VirtualBox](https://img.shields.io/badge/Oracle_VirtualBox-7.2-183A61?style=flat-square&logo=virtualbox&logoColor=white) ![Lab Network](https://img.shields.io/badge/Lab_Network-10.0.0.0%2F24-238F89?style=flat-square) ![NetworkWalks](https://img.shields.io/badge/NetworkWalks-Week_01-404040?style=flat-square)
 
+## 🎯 Project overview
+This project documents how I set up and verified a Kali Linux VM in Oracle VirtualBox, including its NAT Network, static IPv4 configuration, troubleshooting, and test evidence.
 
-</div>
-<p align="center">
-  <img src="https://img.shields.io/badge/Skill-Cybersecurity-404040?style=flat-square&labelColor=C00000" />
-  <img src="https://img.shields.io/badge/Ver-Virtualbox%20v7.2-0070C0?style=flat-square&labelColor=000000" />
-  <img src="https://img.shields.io/badge/Kali%20Linux-v2025.3-E87500?style=flat-square&labelColor=000000&logo=kalilinux&logoColor=white" />
-  <img src="https://img.shields.io/badge/Skill-Linux-404040?style=flat-square&labelColor=C00000" />
-  <img src="https://img.shields.io/badge/Network-10.0.0.0%2F24-238F89?style=flat-square&labelColor=000000" />
-  <img src="https://img.shields.io/badge/Penetration%20Testing-C00000?style=flat-square&labelColor=000000&logo=kalilinux&logoColor=white" />
-  <img src="https://img.shields.io/badge/Skill-Virtualization-404040?style=flat-square&labelColor=C00000" />
-  <img src="https://img.shields.io/badge/GitHub-404040?style=flat-square&labelColor=0070C0&logo=github&logoColor=white" />
-  <img src="https://img.shields.io/badge/Kali%20Linux-404040?style=flat-square&labelColor=C00000&logo=kalilinux&logoColor=white" />
-  <img src="https://img.shields.io/badge/NetworkWalks-404040?style=flat-square&labelColor=C00000" />
-  <img src="https://img.shields.io/badge/Ethical%20Hacking-E87500?style=flat-square&labelColor=000000&logo=kalilinux&logoColor=white" />
- <img src="https://img.shields.io/badge/Kelechi%20Happiness%20Uzoma-C00000?style=flat-square" />
-</p>
+## 🎯 Purpose of the lab
+I created this lab to practice Linux networking and cybersecurity fundamentals in a controlled environment. I will only test systems I own or have permission to assess.
 
-
-## 🎯 Project Overview
-
-This project documents how I built and verified my Kali Linux virtual machine in Oracle VirtualBox, including the NAT Network, static IPv4 configuration, troubleshooting, and test evidence.
-
-## 🎯 Purpose of the Lab
-
-I created this virtual lab to learn Linux networking and cybersecurity fundamentals in a controlled environment. I will use it only for systems I own or have permission to test.
-
-## 🏗️ Lab Architecture
-
-The Kali VM connects to my VirtualBox NAT Network. The current lab network is `10.0.0.0/24`; Kali uses `10.0.0.2/24` and gateway `10.0.0.1`. Additional lab VMs can be added later.
-
+## 🏗️ Lab architecture
 **Windows host** → **Oracle VirtualBox** → **NAT Network** (`10.0.0.0/24`) → **Kali Linux VM** (`10.0.0.2/24`)
 
-> The repositories in Credits were references for the topic and documentation structure. The configuration, screenshots, and results below are from my own lab.
+The Kali VM uses gateway `10.0.0.1`. The VirtualBox NAT Network is named `NatNetwork` and has DHCP enabled; Kali was later configured with a static address.
 
-## ⚙️ Lab Configuration
-
-| Component | My setup |
+## ⚙️ Lab configuration
+| Component | Configuration |
 |---|---|
-| Host operating system | Windows 11 |
+| Host | Windows 11 |
 | Hypervisor | Oracle VirtualBox 7.2 |
-| Virtual machine | Kali Linux 2025.3 |
-| Kali memory | 2048 MB |
-| Network mode | NAT Network |
-| NAT Network name | `NatNetwork` |
-| IPv4 network | `10.0.0.0/24` |
-| NAT DHCP | Enabled on the VirtualBox network |
-| Kali IPv4 configuration | Manual/static |
-| Kali address | `10.0.0.2/24` |
+| VM | Kali Linux 2025.3, 2048 MB RAM |
+| Network | NAT Network, `NatNetwork`, `10.0.0.0/24` |
+| Kali IPv4 | Static `10.0.0.2/24` |
 | Gateway | `10.0.0.1` |
-| DNS servers | `8.8.8.8`, `1.1.1.1` |
+| DNS | `8.8.8.8`, `1.1.1.1` |
 | Snapshot | `Static IP Verified` |
 
-## 🪜 Setup walkthrough
+## 🪜 Setup evidence
 
-### 1. VirtualBox Manager
-
-I used VirtualBox Manager to manage the Kali virtual machine and NAT Network.
-
+### VirtualBox and Kali VM
 ![VirtualBox Manager](screenshots/virtualbox-manager.png)
-
-### 2. Kali virtual machine
-
-The VM is Kali Linux 2025.3 with 2048 MB of memory.
-
 ![Virtual machine overview](screenshots/virtual-machine-overview.png)
-
 ![Virtual machine system settings](screenshots/virtual-machine-system-settings.png)
 
-### 3. NAT Network
-
-I created a NAT Network named `NatNetwork` with the IPv4 prefix `10.0.0.0/24`. DHCP is enabled on the VirtualBox network and IPv6 is disabled.
-
+### NAT Network and adapter
 ![NAT Network settings](screenshots/nat-network-dhcp-settings.png)
 
-### 4. Kali network adapter
-
-Adapter 1 connects Kali to the `NatNetwork` using the Intel PRO/1000 MT Desktop adapter. Promiscuous Mode is currently set to **Deny**. The saved screenshot shows the earlier **Allow All** setting.
-
+The saved adapter screenshot shows Promiscuous Mode set to **Allow All** at that time; it does not confirm the current setting.
 ![Kali adapter settings](screenshots/kali-audio-and-network-settings.png)
 
-### 5. Static IPv4 settings
-
-I configured `Wired connection 1` with address `10.0.0.2/24`, gateway `10.0.0.1`, and DNS servers `8.8.8.8` and `1.1.1.1`.
-
+### Static IPv4 and snapshot
 ![Kali manual IPv4 settings](screenshots/kali-ipv4-manual-settings.png)
-
-### 6. Snapshot
-
-After verifying the network configuration, I saved a VirtualBox snapshot named `Static IP Verified`.
-
 ![Kali snapshot](screenshots/kali-snapshot-Static-IP-Verified.png)
 
 ## ✅ Verification
+The terminal screenshot shows `10.0.0.2/24`, the default route via `10.0.0.1`, and four successful pings to `8.8.8.8` with no packet loss. I also confirmed that `google.com` resolved. Before the static setup, Kali received `10.0.0.3/24` via DHCP.
 
-The terminal evidence shows Kali using the static address `10.0.0.2/24`, with a default route through `10.0.0.1`. Four pings to `8.8.8.8` succeeded with 0% packet loss.
+![Static IP and connectivity verification](screenshots/kali-static-ip-verification.png)
+![DHCP address before static configuration](screenshots/kali-dhcp-before-static.png)
+![Connectivity and DNS verification](screenshots/dns-connectivity.png)
 
-![Kali static IP and connectivity verification](screenshots/kali-static-ip-verification.png)
-
-Earlier in the setup, Kali received `10.0.0.3/24` dynamically. This screenshot records the DHCP state before I configured the static address.
-
-![Kali DHCP address before static configuration](screenshots/kali-dhcp-before-static.png)
-
-I also confirmed that `google.com` resolves and that Kali can reach `8.8.8.8`.
-
-![Kali connectivity and DNS verification](screenshots/dns-connectivity.png)
-
-## 🧰 Commands used
-
+Commands used:
 ```bash
 ip -4 addr
 ip route
@@ -120,53 +61,37 @@ getent hosts google.com
 
 ## 🐞 Problems I faced and how I solved them
 
-When I first entered the manual IPv4 settings, the editor showed validation errors saying Manual mode needed an address or route and that the netmask was invalid. I set the address to `10.0.0.2/24`, the gateway to `10.0.0.1`, and DNS servers, then used NetworkManager's `nmcli` command to update and reactivate the connection. I verified the result with `ip -4 addr`, `ip route`, a successful ping to `8.8.8.8`, and `getent hosts google.com`.
+### Connection name capitalization
+I first ran `nmcli connection up "wired connection 1"` and saw `Error: unknown connection`. The saved profile was `Wired connection 1` with a capital **W**. Using the exact profile name allowed NetworkManager to activate it.
+
+### Invalid or failed manual IPv4 settings
+The IPv4 editor said Manual mode needed an address or route and that the netmask was invalid. A later attempt failed with “IP configuration could not be reserved.” My screenshots also show that I had put the gateway in the DNS field. I corrected the fields so the gateway was `10.0.0.1` and DNS contained only DNS servers.
+
+To restore access while troubleshooting, I returned the profile to DHCP and cleared the manual values. Kali received `10.0.0.3/24`; I confirmed connectivity and name resolution, then configured `10.0.0.2/24` with gateway `10.0.0.1` and DNS `8.8.8.8` and `1.1.1.1`. I verified the result with `ip -4 addr`, `ip route`, `ping -c 4 8.8.8.8`, and `getent hosts google.com`.
 
 ## 🧠 What I learned
-
-- How a VirtualBox NAT Network differs from standard NAT and provides a private lab network.
-- How to configure a static IPv4 address, gateway, and DNS servers in Kali.
-- How to verify network settings, connectivity, and DNS from the terminal.
-- Why saving a VM snapshot after a working setup provides a recovery point.
-- How to document setup steps and troubleshooting clearly.
+- How a VirtualBox NAT Network provides a private network for lab VMs.
+- How to configure and verify a static IPv4 address, gateway, and DNS in Kali.
+- How to troubleshoot NetworkManager connection profiles.
+- Why snapshots and clear documentation are useful.
 
 ## 🧰 Tools and resources
-
-- **Oracle VirtualBox:** [Download VirtualBox](https://virtualbox.org/wiki/Downloads)
-- **Kali Linux:** [Get Kali Linux](https://kali.org/get-kali)
+- [Oracle VirtualBox](https://virtualbox.org/wiki/Downloads)
+- [Kali Linux](https://kali.org/get-kali)
 
 ## 🔐 Safe use
-
-This lab is for learning and authorized testing. I will only test systems I own or have explicit permission to assess.
+This lab is for learning and authorized testing only. I will test only systems I own or have explicit permission to assess.
 
 ## 👤 Author
-
-**Kelechi Happiness Uzoma**  
-Cybersecurity Intern at NetworkWalks
+**Kelechi Happiness Uzoma** · Cybersecurity Intern at NetworkWalks
 
 ## 📋 Project information
-
 | Item | Details |
 |---|---|
-| Program Name | Cybersecurity at NetworkWalks |
+| Program | Cybersecurity at NetworkWalks |
 | Week | 01 |
 | Project | Cybersecurity & Pentesting Lab Setup |
 | Repository | [My-Cybersecurity-Lab](https://github.com/kellysxx/My-Cybersecurity-Lab) |
 
 ## 🙏 Credits
-
-These repositories were references for the topic and documentation structure. The lab configuration, screenshots, and results in this project are my own.
-
-
-
-## 🧩 Additional connection errors and fixes
-
-### 1. Connection name used the wrong capitalization
-
-I first ran `nmcli connection up "wired connection 1"` and got `Error: unknown connection`. The saved profile name was `Wired connection 1`, with a capital **W**. I corrected the command to use the exact saved name, and NetworkManager activated the connection.
-
-### 2. Static profile did not activate
-
-When I tried to apply the manual IPv4 settings, NetworkManager reported `IP configuration could not be reserved`. I also noticed I had included the gateway address in the DNS list. The gateway belongs in the gateway field; the DNS field should contain DNS server addresses only.
-
-To restore network access while troubleshooting, I changed the profile back to automatic (DHCP), cleared the manual address, gateway, and DNS entries, then reactivated it. Kali received `10.0.0.3/24` and I confirmed that both `8.8.8.8` and `google.com` responded to ping. After correcting the static configuration, I later verified the final lab address `10.0.0.2/24`, gateway `10.0.0.1`, connectivity, and DNS as documented above.
+This Week 01 project was completed as part of Cybersecurity at NetworkWalks. The lab configuration, screenshots, and test results are my own. Software download links are listed above.
